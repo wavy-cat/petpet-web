@@ -31,7 +31,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: out/
+          path: ./
+      
+      - name: Unpack artifact
+        run: tar -xf artifact.tar -C out/
 
       - name: Upload files
         env:
