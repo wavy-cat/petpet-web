@@ -1,0 +1,38 @@
+---
+import { ModeToggle } from "../ModeToggle";
+import { buttonVariants } from "../ui/button";
+import { MobileLinksMenu } from "./MobileLinksMenu";
+import type { Link } from "@/components/header/types.ts";
+import { cn } from "../../lib/utils.ts";
+
+const { links, slim = false } = Astro.props as { links: Link[], slim?: boolean };
+const path = Astro.url.pathname;
+---
+
+<header>
+    <div class={cn("flex items-center justify-between", !slim && "py-3 px-6 container mx-auto")}>
+        <span class="font-bold"><a href="/">PetPet</a></span>
+        <nav class="flex gap-2">
+            <div class="hidden md:block">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.url}
+                            target={link.newtab ? "_blank" : "_self"}
+                            class={cn(
+                                buttonVariants({ variant: "link" }),
+                                path == link.url ? "font-bold" : "",
+                            )}
+                        >
+                            {link.title}
+                        </a>
+                    ))
+                }
+            </div>
+            <div class="md:hidden">
+                <MobileLinksMenu links={links} client:load />
+            </div>
+            <ModeToggle client:load />
+        </nav>
+    </div>
+</header>
