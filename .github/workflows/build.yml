@@ -34,7 +34,9 @@ jobs:
           path: ./
       
       - name: Unpack artifact
-        run: tar -xf artifact.tar -C out/
+        run: |
+          mkdir out/
+          tar -xf artifact.tar -C out/
 
       - name: Upload files
         env:
