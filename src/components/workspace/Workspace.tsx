@@ -150,7 +150,7 @@ export default function Workspace() {
                     </div>
                 </div>
             </div>
-            <Separator orientation="vertical" />
+            <Separator orientation="vertical" className="hidden md:block" />
             <div className="flex items-center justify-center p-4 w-full md:w-[200px]">
                 <Preview src={previewUrl} disabledText="Paste user ID to see preview" />
             </div>
