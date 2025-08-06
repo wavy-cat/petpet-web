@@ -41,7 +41,7 @@ We use modern technologies, such as HTTPS to encrypt traffic, and take measures 
 
 ## 7. User Rights
 
-We do not store any personal data except for request logs. As all data is deleted within 3 days, there are no special rights for data access.
+We do not store any personal data except for request logs. As all data is deleted within 7 days, there are no special rights for data access.
 
 ## 8. Cookies
 
