@@ -1,0 +1,21 @@
+import type { APIRoute } from "astro";
+
+export const GET: APIRoute = async ({ request, locals }) => {
+    const { env } = locals.runtime;
+    const token = env.IAM_TOKEN;
+    const endpoint = env.CONTAINER_ENDPOINT;
+    const url = new URL(request.url);
+    const fullPath = url.pathname + url.search;
+
+    return await fetch(
+        `${endpoint}${fullPath}`,
+        {
+            headers: {
+                "Authorization": `Api-Key ${token}`,
+                "User-Agent": "PetPetBot/1.0 (internal)"
+            }
+        }
+    );
+}
+
+export const prerender = false
