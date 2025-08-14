@@ -5,10 +5,11 @@ export const GET: APIRoute = async ({ request, locals }) => {
     const token = env.IAM_TOKEN;
     const endpoint = env.CONTAINER_ENDPOINT;
     const url = new URL(request.url);
-    const fullPath = url.pathname + url.search;
+    console.log(url);
+    console.log(`${endpoint}${url.pathname}${url.search}`);
 
     return await fetch(
-        `${endpoint}${fullPath}`,
+        `${endpoint}${url.pathname}${url.search}`,
         {
             headers: {
                 "Authorization": `Api-Key ${token}`,
