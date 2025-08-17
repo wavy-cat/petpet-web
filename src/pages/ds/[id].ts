@@ -7,8 +7,7 @@ export const GET: APIRoute = async ({ request, locals }) => {
     const url = new URL(request.url);
     console.log(url);
     console.log(`${endpoint}${url.pathname}${url.search}`);
-
-    return await fetch(
+    const resp = await fetch(
         `${endpoint}${url.pathname}${url.search}`,
         {
             headers: {
@@ -17,6 +16,8 @@ export const GET: APIRoute = async ({ request, locals }) => {
             }
         }
     );
+    console.log(resp.url);
+    return resp;
 }
 
 export const prerender = false
