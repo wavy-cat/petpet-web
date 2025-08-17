@@ -3,12 +3,11 @@ import type { APIRoute } from "astro";
 export const GET: APIRoute = async ({ request, locals }) => {
     const { env } = locals.runtime;
     const token = env.IAM_TOKEN;
-    const endpoint = env.CONTAINER_ENDPOINT;
-    const url = new URL(request.url);
+    const base = env.CONTAINER_ENDPOINT;
+    const url = new URL(request.url, base);
     console.log(url);
-    console.log(`${endpoint}${url.pathname}${url.search}`);
     const resp = await fetch(
-        `${endpoint}${url.pathname}${url.search}`,
+        url,
         {
             headers: {
                 "Authorization": `Api-Key ${token}`,
