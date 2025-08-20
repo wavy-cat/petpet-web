@@ -21,7 +21,7 @@ const {title} = (Astro.props as Props).content;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta property="og:title" content={title} />
-		<meta property="og:url" content="https://pet.wavycat.ru/" />
+		{Astro.site && <meta property="og:url" content={`https://${Astro.site?.host}/`} />}
 		<meta property="og:type" content="website" />
 	</head>
 	<body>

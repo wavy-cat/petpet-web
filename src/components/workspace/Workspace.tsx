@@ -74,7 +74,7 @@ export default function Workspace() {
             setStatus("loading");
             setResponse(null);
             try {
-                const res = await fetch(`https://pet.wavycat.ru/exists/${debouncedUserId}`);
+                const res = await fetch(`/exists/${debouncedUserId}`);
                 if (!res.ok) {
                     throw new Error("Network response was not ok");
                 }
@@ -93,7 +93,7 @@ export default function Workspace() {
 
     useEffect(() => {
         if (status === 'success' && response?.found && debouncedUserId) {
-            const url = `https://pet.wavycat.ru/ds/${debouncedUserId}.gif?delay=${debouncedSliderValue}`;
+            const url = `/ds/${debouncedUserId}.gif?delay=${debouncedSliderValue}`;
             setPreviewUrl(url);
         } else {
             setPreviewUrl(null);

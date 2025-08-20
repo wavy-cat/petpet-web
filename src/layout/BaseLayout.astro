@@ -23,7 +23,7 @@ const { title, description } = Astro.props as Props;
                 <meta property="og:description" content={description} />
             )
         }
-        <meta property="og:url" content="https://pet.wavycat.ru/" />
+		{Astro.site && <meta property="og:url" content={`https://${Astro.site?.host}/`} />}
         <meta property="og:type" content="website" />
     </head>
     <body class="w-full h-full">
