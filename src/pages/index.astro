@@ -4,5 +4,5 @@ import IndexLayout from "../layout/IndexLayout.astro";
 ---
 
 <IndexLayout title="PetPet" description="PetPet Generator">
-  <Workspace client:load/>
+  <Workspace site={"https://" + Astro.site!.host} client:load/>
 </IndexLayout>

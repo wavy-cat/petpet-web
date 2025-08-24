@@ -13,6 +13,10 @@ import CopyButton from "@/components/buttons/CopyButton";
 import DownloadButton from "@/components/buttons/DownloadButton";
 import { Separator } from "../ui/separator";
 
+type Props = {
+    site: string;
+};
+
 type TApiResponse = {
     found: boolean;
     bot?: boolean;
@@ -44,7 +48,7 @@ const StatusIcon = ({ status, response }: { status: TValidationStatus, response:
     }
 };
 
-export default function Workspace() {
+export default function Workspace({ site }: Props) {
     const [userId, setUserId] = useState("");
     const [sliderValue, setSliderValue] = useState(3);
     const [status, setStatus] = useState<TValidationStatus>("idle");
@@ -145,7 +149,7 @@ export default function Workspace() {
                         />
                     </div>
                     <div className="flex gap-2">
-                        <CopyButton url={previewUrl} />
+                        <CopyButton url={site + previewUrl} />
                         <DownloadButton url={previewUrl} />
                     </div>
                 </div>
