@@ -22,7 +22,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [react(), sitemap(), markdownPrerender()],
+  integrations: [react(), sitemap(), markdownPrerender({prerenderAll: true})],
 
   prefetch: {
     prefetchAll: true

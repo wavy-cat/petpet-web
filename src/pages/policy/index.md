@@ -1,7 +1,6 @@
 ---
 layout: '../../layout/ArticleLayout.astro'
 title: 'Private Policy'
-prerender: true
 ---
 
 
