@@ -1,52 +1,43 @@
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuCheckboxItem,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+type Theme = "dark" | "light";
 
 export function ModeToggle() {
-	const [theme, setThemeState] = React.useState<
-		"theme-light" | "dark" | "system"
-	>("theme-light")
+	const [theme, setTheme] = React.useState<Theme>('light');
 
 	React.useEffect(() => {
-		const isDarkMode = document.documentElement.classList.contains("dark")
-		setThemeState(isDarkMode ? "dark" : "theme-light")
-	}, [])
+		const storedTheme = localStorage.getItem("theme") as Theme | null;
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+		if (storedTheme) {
+			setTheme(storedTheme);
+		} else {
+			setTheme(prefersDark ? "dark" : "light");
+		}
+	}, []);
 
 	React.useEffect(() => {
-		const isDark =
-			theme === "dark" ||
-			(theme === "system" &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches)
-		document.documentElement.classList[isDark ? "add" : "remove"]("dark")
-	}, [theme])
+		const root = window.document.documentElement;
+
+		root.classList.remove("light", "dark");
+		root.classList.add(theme);
+
+		localStorage.setItem("theme", theme);
+	}, [theme]);
+
+	const toggleTheme = () => {
+		setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
+	};
 
 	return (
-		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button className="cursor-pointer" variant="ghost" size="icon">
-					<Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-					<Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-					<span className="sr-only">Toggle theme</span>
-				</Button>
-			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end">
-				<DropdownMenuCheckboxItem className="cursor-pointer" checked={theme === 'theme-light'} onClick={() => setThemeState("theme-light")}>
-					Light
-				</DropdownMenuCheckboxItem>
-				<DropdownMenuCheckboxItem className="cursor-pointer" checked={theme === 'dark'} onClick={() => setThemeState("dark")}>
-					Dark
-				</DropdownMenuCheckboxItem>
-				<DropdownMenuCheckboxItem className="cursor-pointer" checked={theme === 'system'} onClick={() => setThemeState("system")}>
-					System
-				</DropdownMenuCheckboxItem>
-			</DropdownMenuContent>
-		</DropdownMenu>
-	)
+		<Button className="cursor-pointer" variant="ghost" size="icon" onClick={toggleTheme}>
+			<Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+			<Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+			<span className="sr-only">Toggle theme</span>
+		</Button>
+	);
 }
+
+export default ModeToggle;
