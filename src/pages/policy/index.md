@@ -33,7 +33,7 @@ We do not share any data with third parties. Data is used internally solely for 
 
 ## 5. Data Storage Location
 
-We store and process your data in the Russian Federation. Additionally, data is processed on Cloudflare's servers, a U.S. company with servers located worldwide.
+Data is stored and processed on the servers of the U.S. company Cloudflare (located worldwide) and the Russian company Yandex.Cloud (within the territory of the Russian Federation).
 
 ## 6. Data Security
 
