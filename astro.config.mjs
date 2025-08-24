@@ -4,7 +4,6 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
-import markdownPrerender from 'astro-markdown-prerender';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +21,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [react(), sitemap(), markdownPrerender({prerenderAll: true})],
+  integrations: [react(), sitemap()],
 
   prefetch: {
     prefetchAll: true
