@@ -30,9 +30,9 @@ const path = Astro.url.pathname;
                 }
             </div>
             <div class="md:hidden">
-                <MobileLinksMenu links={links} client:load />
+                <MobileLinksMenu links={links} client:idle />
             </div>
-            <ModeToggle client:load />
+            <ModeToggle client:idle />
         </nav>
     </div>
 </header>
