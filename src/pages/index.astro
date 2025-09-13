@@ -1,8 +1,28 @@
 ---
+import {
+  Alert,
+  AlertTitle,
+  AlertDescription,
+} from "../components/ui/alert.tsx";
+import { TriangleAlert } from "lucide-react";
 import Workspace from "../components/workspace/Workspace.tsx";
 import IndexLayout from "../layout/IndexLayout.astro";
+
+const { cf } = Astro.locals.runtime;
+const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE"].includes(cf?.country);
 ---
 
 <IndexLayout title="PetPet" description="PetPet Generator">
-  <Workspace site={"https://" + Astro.site!.host} client:load/>
+  {
+    isRestricted && (
+      <Alert className="bg-transparent">
+        <TriangleAlert />
+        <AlertTitle>Heads up!</AlertTitle>
+        <AlertDescription>
+          Due to regulatory actions in your country, the service may experience interruptions.
+        </AlertDescription>
+      </Alert>
+    )
+  }
+  <Workspace site={"https://" + Astro.site!.host} client:load />
 </IndexLayout>

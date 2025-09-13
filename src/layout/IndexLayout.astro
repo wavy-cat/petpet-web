@@ -32,7 +32,7 @@ const { title, description } = Astro.props as Props;
     </head>
     <body class="w-full h-full">
         <div class="h-full flex justify-center">
-            <section class="flex flex-col justify-center gap-2">
+            <section class="flex flex-col justify-center gap-2 max-w-min">
                 <Header links={links} slim={true} />
                 <slot />
                 <Footer />
