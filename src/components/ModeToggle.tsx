@@ -2,33 +2,25 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 
-type Theme = "dark" | "light";
+type Theme = "dark" | "theme-light" | null;
 
 export function ModeToggle() {
-	const [theme, setTheme] = React.useState<Theme>('light');
+	const [theme, setTheme] = React.useState<Theme>(null);
 
 	React.useEffect(() => {
-		const storedTheme = localStorage.getItem("theme") as Theme | null;
-		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setTheme(isDarkMode ? "dark" : "theme-light");
+  }, []);
 
-		if (storedTheme) {
-			setTheme(storedTheme);
-		} else {
-			setTheme(prefersDark ? "dark" : "light");
-		}
-	}, []);
-
-	React.useEffect(() => {
-		const root = window.document.documentElement;
-
-		root.classList.remove("light", "dark");
-		root.classList.add(theme);
-
-		localStorage.setItem("theme", theme);
-	}, [theme]);
+  React.useEffect(() => {
+    if (theme !== null) {
+      const isDark = theme === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    }
+  }, [theme]);
 
 	const toggleTheme = () => {
-		setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
+		setTheme(prevTheme => (prevTheme === "theme-light" ? "dark" : "theme-light"));
 	};
 
 	return (
