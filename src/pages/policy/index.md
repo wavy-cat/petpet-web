@@ -1,6 +1,7 @@
 ---
 layout: '../../layout/ArticleLayout.astro'
 title: 'Private Policy'
+description: 'Boring legal information that no one reads.'
 ---
 
 
@@ -11,6 +12,7 @@ By using our PetPet GIF generation service, you agree to this privacy policy. If
 ## 1. Collected Data
 
 When using our service, we collect the following data:
+
 - **Discord User ID** — used to retrieve the user's public avatar and process it into an animation.
 - **IP address** — used to protect against abuse and analyze requests.
 - **User-Agent** — used for troubleshooting and ensuring the proper functioning of the service.
@@ -19,6 +21,7 @@ When using our service, we collect the following data:
 ## 2. Purpose of Data Collection
 
 We collect data solely for the purpose of providing and improving our service:
+
 - The Discord User ID is necessary to retrieve the avatar and generate the animation.
 - The IP address and User-Agent are collected to protect against potential abuse, as well as for diagnostics and performance improvements.
 - Request time helps us monitor activity, prevent abuse, and improve the security of the service.

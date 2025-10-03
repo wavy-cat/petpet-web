@@ -24,6 +24,7 @@ const { title, description } = Astro.props as Props;
         {
             description !== undefined && (
                 <meta property="og:description" content={description} />
+                <meta name="description" content={description}>
             )
         }
         <meta property="og:image" content="/preview.gif" />

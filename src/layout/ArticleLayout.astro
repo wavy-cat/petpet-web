@@ -5,11 +5,12 @@ import {links} from "./links.ts";
 
 interface Props {
 	content: {
-		title: string
+		title: string,
+		description: string
 	}
 }
 
-const {title} = (Astro.props as Props).content;
+const {title, description} = (Astro.props as Props).content;
 ---
 
 <html lang="en">
@@ -21,6 +22,12 @@ const {title} = (Astro.props as Props).content;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta property="og:title" content={title} />
+		{
+            description !== undefined && (
+                <meta property="og:description" content={description} />
+                <meta name="description" content={description}>
+            )
+        }
 		{Astro.site && <meta property="og:url" content={`https://${Astro.site?.host}/`} />}
 		<meta property="og:type" content="website" />
 	</head>
