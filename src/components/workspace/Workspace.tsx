@@ -117,7 +117,7 @@ export default function Workspace({ site }: Props) {
     return (
         <div className="flex flex-col md:flex-row justify-between border shadow-lg rounded-lg">
             <div className="flex-col p-3">
-                <div className="gap-4 grid">
+                <div className="gap-4 grid md:w-60">
                     <div className="gap-2 grid">
                         <label htmlFor="userId" className="text-sm leading-none font-semibold">Discord user ID *</label>
                         <div className="flex items-center gap-2">
@@ -138,7 +138,7 @@ export default function Workspace({ site }: Props) {
                     </div>
                     <div className="gap-2 grid">
                         <p className="text-sm leading-none font-semibold">
-                            Speed (smaller is faster)
+                            Delay <span className="text-muted-foreground">(bigger is slower)</span>
                         </p>
                         <Slider
                             defaultValue={[sliderValue]}
