@@ -149,7 +149,7 @@ export default function Workspace({ site }: Props) {
                         />
                     </div>
                     <div className="flex gap-2">
-                        <CopyButton url={previewUrl && (site + previewUrl)} />
+                        <CopyButton url={previewUrl && `https://${site}${previewUrl}`} />
                         <DownloadButton url={previewUrl} />
                     </div>
                 </div>

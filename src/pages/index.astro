@@ -28,6 +28,6 @@ const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE"].includes(cf?.
       </Alert>
     )
   }
-  <Workspace site={"https://" + Astro.site!.host} client:load />
+  <Workspace site={Astro.site!.host} client:load />
   <Footer />
 </CentrifyLayout>
