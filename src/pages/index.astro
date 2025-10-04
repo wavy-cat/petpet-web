@@ -6,13 +6,17 @@ import {
 } from "../components/ui/alert.tsx";
 import { TriangleAlert } from "lucide-react";
 import Workspace from "../components/workspace/Workspace.tsx";
-import IndexLayout from "../layout/IndexLayout.astro";
+import CentrifyLayout from "@/layout/CentrifyLayout.astro";
+import Footer from "@/components/footer/Footer.astro";
+import Header from "@/components/header/Header.astro";
+import { links } from "@/links.ts";
 
 const { cf } = Astro.locals.runtime;
 const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE"].includes(cf?.country);
 ---
 
-<IndexLayout title="PetPet" description="PetPet Generator">
+<CentrifyLayout title="PetPet" description="PetPet GIF Generator by Discord avatar">
+  <Header links={links} slim={true} />
   {
     isRestricted && (
       <Alert className="bg-transparent">
@@ -25,4 +29,5 @@ const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE"].includes(cf?.
     )
   }
   <Workspace site={"https://" + Astro.site!.host} client:load />
-</IndexLayout>
+  <Footer />
+</CentrifyLayout>

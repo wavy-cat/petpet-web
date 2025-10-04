@@ -1,15 +1,11 @@
 ---
 import "../styles/global.css";
+import type { BaseLayoutProps } from "./types.ts";
 
-interface Props {
-    title: string;
-    description?: string;
-}
-
-const { title, description } = Astro.props as Props;
+const { title, description, pageFull } = Astro.props as BaseLayoutProps;
 ---
 
-<html lang="en" class="w-full h-full">
+<html lang="en" class={pageFull === true ? "w-full h-full" : ""}>
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
@@ -27,7 +23,7 @@ const { title, description } = Astro.props as Props;
 		{Astro.site && <meta property="og:url" content={`https://${Astro.site?.host}/`} />}
         <meta property="og:type" content="website" />
     </head>
-    <body class="w-full h-full">
+    <body class={pageFull === true ? "w-full h-full" : ""}>
         <div class="h-full flex justify-center">
             <section class="flex flex-col justify-center gap-2">
                 <slot />

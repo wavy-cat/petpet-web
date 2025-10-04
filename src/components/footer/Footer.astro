@@ -1,3 +1,9 @@
-<footer class="text-gray-600 text-sm text-center">
+---
+import { cn } from "@/lib/utils";
+
+const userClass = Astro.props.class ?? '';
+---
+
+<footer class={cn(userClass, "text-gray-600 text-sm text-center")}>
     Created with 🩶 by <a href="https://wavycat.ru" class="underline">WavyCat</a>.
 </footer>
