@@ -2,7 +2,7 @@
 
 This repository contains the website for the main project - [petpet-go](https://github.com/wavy-cat/petpet-go).
 
-![Stack](https://skillicons.dev/icons?i=astro,react,tailwind,aws,nodejs,pnpm)
+![Stack](https://skillicons.dev/icons?i=astro,react,tailwind,workers,nodejs,pnpm)
 
 ## Commands
 
