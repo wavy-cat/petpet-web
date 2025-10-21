@@ -11,17 +11,17 @@ export const GET: APIRoute = async ({ request, locals }) => {
     const url = new URL(source.pathname + source.search, base);
 
     const idToken = await getIdToken(privateKey, accountEmail, base);
-    
-    const resp = await fetch(
+
+    return await fetch(
         url.toString(),
         {
             headers: {
                 "Authorization": `Bearer ${idToken}`,
-                "User-Agent": "PetPetBot/1.0 (internal)"
+                "User-Agent": "PetPetBot/1.0 (internal)",
+                "X-Request-ID": request.headers.get("cf-ray") || ''
             }
         }
     );
-    return resp;
 }
 
 async function getIdToken(privateKeyPem: string, accountEmail: string, serviceUrl: string): Promise<string> {
