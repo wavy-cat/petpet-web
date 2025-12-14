@@ -12,7 +12,7 @@ import Header from "@/components/header/Header.astro";
 import { links } from "@/links.ts";
 
 const { cf } = Astro.locals.runtime;
-const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE", "UK"].includes(cf?.country);
+const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE", "GB"].includes(cf?.country);
 ---
 
 <CentrifyLayout title="PetPet" description="PetPet GIF Generator by Discord avatar">
