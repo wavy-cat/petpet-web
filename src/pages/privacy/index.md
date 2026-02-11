@@ -18,4 +18,4 @@ We store and process information on our servers located in the United States. We
 
 ## Contact Information
 
-For any questions regarding this privacy policy, you can contact us via email at wavycatter [dot] proton.me or through website at [wavycat.me](https://wavycat.me).
+For any questions regarding this privacy policy, you can contact us via email at **wavycatter [dot] proton.me** or through website at [wavycat.me](https://wavycat.me).
