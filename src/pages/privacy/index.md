@@ -60,4 +60,4 @@ We reserve the right to make changes to this privacy policy at any time without 
 
 ## 11. Contact Information
 
-For any questions regarding this privacy policy, you can contact us via email at [wavycatter@proton.me](mailto:wavycatter@proton.me) or through our website at [wavycat.ru](https://wavycat.ru).
+For any questions regarding this privacy policy, you can contact us via email at wavycatter [dot] proton.me or through website at [wavycat.me](https://wavycat.me).
