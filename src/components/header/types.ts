@@ -1,5 +1,5 @@
 export interface Link {
 	url: string
 	title: string
-	newtab?: boolean
+	newTab?: boolean
 }
