@@ -15,7 +15,3 @@ enabled = true
 
 [placement]
 mode = "smart"
-
-[[vpc_services]]
-binding = "VPC_SERVICE"
-service_id = "019c4aaa-ce51-7883-92a8-eb92da796c67" # Replace with your VPC service ID
