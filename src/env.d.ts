@@ -4,6 +4,7 @@ declare namespace App {
     interface Locals extends Runtime {
         otherLocals: {
             BOT_TOKEN: string,
+            VPC_SERVICE: any,
         };
     }
 }
