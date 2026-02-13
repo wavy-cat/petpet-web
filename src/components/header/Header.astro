@@ -3,20 +3,15 @@ import { ModeToggle } from "../ModeToggle";
 import { buttonVariants } from "../ui/button";
 import { MobileLinksMenu } from "./MobileLinksMenu";
 import type { Link } from "@/components/header/types.ts";
-import { cn } from "@/lib/utils.ts";
+import { cn } from "../../lib/utils.ts";
 
+const { links, slim = false } = Astro.props as { links: Link[], slim?: boolean };
 const path = Astro.url.pathname;
-const base = import.meta.env.BASE_URL;
-const {links: rawLinks, slim = false} = Astro.props as { links: Link[], slim?: boolean };
-const links = rawLinks.map(link => ({
-    ...link,
-    url: link.url.startsWith('/') ? base + link.url : link.url
-}));
 ---
 
 <header>
     <div class={cn("flex items-center justify-between", !slim && "py-3 px-6 container mx-auto")}>
-        <span class="font-bold"><a href={base}>PetPet</a></span>
+        <span class="font-bold"><a href="/">PetPet</a></span>
         <nav class="flex gap-2">
             <div class="hidden md:block">
                 {
