@@ -7,8 +7,6 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/app',
-  trailingSlash: 'never',
   site: 'https://pet.wavycat.me/app',
   output: 'server',
 
