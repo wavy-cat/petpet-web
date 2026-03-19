@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "generate-types && astro build",
-    "preview": "generate-types && astro preview",
+    "build": "wrangler types && astro build",
+    "preview": "wrangler types && astro preview",
     "astro": "astro",
     "wrangler": "wrangler",
     "generate-types": "wrangler types"
