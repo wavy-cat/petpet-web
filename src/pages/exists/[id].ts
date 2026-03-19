@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
+import {env} from "cloudflare:workers";
+import type {APIUser} from 'discord-api-types/v10';
 
-export const GET: APIRoute = async ({ params, locals }) => {
-    const { env } = locals.runtime;
+export const GET: APIRoute = async ({ params }) => {
     const token = env.BOT_TOKEN;
     const userId = params.id;
     const response = await fetch(
@@ -15,21 +16,12 @@ export const GET: APIRoute = async ({ params, locals }) => {
     );
 
     switch (response.status) {
-        case 404:
-            return new Response(
-                JSON.stringify({
-                    "found": false,
-                    "bot": null,
-                    "error": false
-                }),
-                { headers: { "Content-Type": "application/json" } }
-            );
         case 200:
-            const body = await response.json();
+            const user: APIUser = await response.json();
             return new Response(
                 JSON.stringify({
                     "found": true,
-                    "bot": body.bot === true,
+                    "bot": user.bot === true,
                     "error": false
                 }),
                 {
@@ -38,6 +30,15 @@ export const GET: APIRoute = async ({ params, locals }) => {
                         "Cache-Control": "public, max-age=86400"
                     }
                 }
+            );
+        case 404:
+            return new Response(
+                JSON.stringify({
+                    "found": false,
+                    "bot": null,
+                    "error": false
+                }),
+                { headers: { "Content-Type": "application/json" } }
             );
         default:
             const text = await response.text();
@@ -60,5 +61,3 @@ export const GET: APIRoute = async ({ params, locals }) => {
             );
     }
 }
-
-export const prerender = false

@@ -26,3 +26,4 @@ pnpm-debug.log*
 # cloudflare wrangler
 .wrangler
 .dev.vars
+worker-configuration.d.ts

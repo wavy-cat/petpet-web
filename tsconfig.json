@@ -15,6 +15,7 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "types": ["./worker-configuration.d.ts"]
   }
 }

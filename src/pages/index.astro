@@ -11,7 +11,7 @@ import Footer from "@/components/footer/Footer.astro";
 import Header from "@/components/header/Header.astro";
 import { links } from "@/links.ts";
 
-const { cf } = Astro.locals.runtime;
+const cf = Astro.request.cf;
 const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE", "GB"].includes(cf?.country);
 ---
 
