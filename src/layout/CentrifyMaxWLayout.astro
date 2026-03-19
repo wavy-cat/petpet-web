@@ -7,7 +7,7 @@ const { title, description } = Astro.props as BaseLayoutProps;
 
 <BaseLayout title={title} description={description} pageFull={true}>
     <div class="h-full flex justify-center">
-        <section class="flex flex-col justify-center gap-2">
+        <section class="flex flex-col justify-center gap-2 max-w-min">
             <slot />
         </section>
     </div>
