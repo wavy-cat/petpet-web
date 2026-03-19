@@ -6,7 +6,7 @@ import {
 } from "../components/ui/alert.tsx";
 import { TriangleAlert } from "lucide-react";
 import Workspace from "../components/workspace/Workspace.tsx";
-import CentrifyLayout from "@/layout/CentrifyLayout.astro";
+import CentrifyMaxWLayout from "@/layout/CentrifyMaxWLayout.astro";
 import Footer from "@/components/footer/Footer.astro";
 import Header from "@/components/header/Header.astro";
 import { links } from "@/links.ts";
@@ -15,7 +15,7 @@ const cf = Astro.request.cf;
 const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE", "GB"].includes(cf?.country);
 ---
 
-<CentrifyLayout title="PetPet" description="PetPet GIF Generator by Discord avatar">
+<CentrifyMaxWLayout title="PetPet" description="PetPet GIF Generator by Discord avatar">
   <Header links={links} slim={true} />
   {
     isRestricted && (
@@ -30,4 +30,4 @@ const isRestricted = cf?.country && ["RU", "TR", "IR", "CN", "AE", "GB"].include
   }
   <Workspace site={Astro.site!.host} client:load />
   <Footer />
-</CentrifyLayout>
+</CentrifyMaxWLayout>
