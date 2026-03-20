@@ -23,6 +23,4 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: "compile",
   }),
-
-  security: { csp: true },
 });
