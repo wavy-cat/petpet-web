@@ -24,6 +24,4 @@ export default defineConfig({
     imageService: "compile",
     prerenderEnvironment: 'node'
   }),
-
-  security: { csp: true },
 });
