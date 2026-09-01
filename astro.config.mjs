@@ -9,6 +9,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://pet.wavycat.me',
   output: 'server',
+  session: false,
 
   vite: {
     plugins: [tailwindcss()]
